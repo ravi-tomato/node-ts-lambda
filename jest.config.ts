@@ -1,6 +1,4 @@
-import type { Config } from 'jest';
-
-const config: Config = {
+export default {
     verbose: true,
     transform: {
         '^.+\\.ts?$': 'esbuild-jest'
@@ -14,6 +12,5 @@ const config: Config = {
         '/opt/nodejs/(.*)': '<rootDir>/layers/common-layer/src/$1'
     },
     modulePaths: ['<rootDir>']
-};
+}
 
-export default config;
