@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  node-ts:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    volumes:
+      - ./src:/usr/app/src
+    container_name: node-ts
+    expose:
+      - '8000'
+    ports:
+      - 8000:8000
+    command: npm run dev

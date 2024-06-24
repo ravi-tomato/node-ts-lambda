@@ -8,6 +8,7 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
-RUN npm run lint && \
-    npm run format && \
-    npm run dev
+RUN npm run lint:fix && \
+    npm run format
+    # && \
+    # npm run test
