@@ -18,6 +18,7 @@ Resources:
               - Key: Name
                 Value: Backend-VPC
   
+  # Adjust CIDR block and AZ
   PublicSubnet:
     Type: AWS::EC2::Subnet
     Properties:
@@ -26,6 +27,7 @@ Resources:
          CidrBlock: 10.0.1.0/24
          MapPublicIpOnLaunch: true
 
+  # Adjust CIDR block and AZ
   PrivateSubnet:
     Type: AWS::EC2::Subnet
     Properties:
@@ -70,13 +72,16 @@ Resources:
     Properties:
          BucketName: !Sub ${AWS::StackName}-logs-bucket
 
+  # Write a proper DynamoDB table schema
   DynamoDBTable:
     Type: AWS::DynamoDB::Table
     Properties:
          
+  # Define a proper Lambda config
   LambdaFunction:
     Type: 
 
+  # Need to adjust attributes based on the requirements
   UserPool:
     Type: AWS::Cognito::UserPool
     Properties: 
@@ -86,6 +91,7 @@ Resources:
       UsernameAttributes:
            - email
   
+  # Define a proper user pool client config
   UserPoolClient:
     Type: AWS::Cognito::UserPoolClient
     Properties:
@@ -96,6 +102,7 @@ Resources:
         - ALLOW_USER_SRP_AUTH
         - ALLOW_REFRESH_TOKEN_AUTH
 
+  # Define a proper default cache behavior config
   CloudFrontDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
